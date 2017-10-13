@@ -44,5 +44,27 @@
         <div id="output"></div>
     </div>
 
+
+
+    <script>
+        // Listen For Submit
+        document.querySelector('#zipForm').addEventListener('submit', getLocationInfo);
+
+        function getLocationInfo(e){
+            //Get zip value from input
+            const zip = document.querySelector('.zip').value;
+            
+            //Make Request
+            fetch(`http://api.zippopotam.us/us/${zip}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            
+            e.preventDefault();
+            
+        }
+    </script>
+
 </body>
 </html>
